@@ -54,6 +54,22 @@
       color: #eaeaea;
       letter-spacing: 0.5px;
     }
+
+    .lead-b {
+      color: #252525;
+    }
+
+    .btn-info {
+      background: #008ce9;
+      color: white;
+      outline: none;
+      border: none;
+    }
+
+    .btn-info:hover {
+      background: #11a0ff;
+      color: white;
+    }
   </style>
   <body>
     <div class="top-icon position-fixed rounded-circle">
@@ -137,14 +153,14 @@
       <div class="container text-center">
         <div class="row">
           <div class="col-12 text-center">
-            <h1 class="fw-bold mb-5">About</h1>
+            <h1 class="fw-bold mb-5 lead-b">About</h1>
           </div>
         </div>
         <div class="row justify-content-center">
-          <div class="col-4">
+          <div class="col-md-4 mb-lg-0 mb-md-5 mb-5">
             <p class="text-center">Lorem , dolor sit amet consectetur adipisicing elit. Dolore sunt ducimus fugit dolores odio rem perferendis voluptatibus sint esse placeat.</p>
           </div>
-          <div class="col-4">
+          <div class="col-md-4 mb-lg-0 mb-md-5 mb-5">
             <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis fuga atque quia consectetur quo cumque, amet est sint facere.</p>
           </div>
         </div>
@@ -166,15 +182,21 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <h1 class="text-center mb-4">My Projects</h1>
+            <h1 class="text-center fw-bold mb-5 text-white">My Projects</h1>
           </div>
         </div>
         <div class="row gy-4 justify-content-center">
-          <div class="col-lg-4">
-            <div class="card">
-              <img src="..." class="card-img-top" alt="..." />
-              <div class="card-body">
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="card shadow mb-5 mb-lg-0">
+                  <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
+                  <div class="card-body">
+                    <h5>Web Restaurant PHP</h5>
+                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
+                    <button class="btn btn-info">Visit in Github</button>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -195,9 +217,9 @@
 
     <section id="contact">
       <div class="container">
-        <div class="row text-center">
+        <div class="row text-center mb-3">
           <div class="col">
-            <h1>Contact Me</h1>
+            <h1 class="fw-bold lead-b">Contact Me</h1>
           </div>
         </div>
         <div class="row justify-content-center">
