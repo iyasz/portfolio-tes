@@ -8,21 +8,21 @@ if (isset($_POST['kirim'])) {
     $pesan = htmlspecialchars($_POST['pesan']);
 
 
-    $email = htmlspecialchars($_POST['email']);
-    // $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-    $email_token = md5(mt_rand());
-    $expired_token = time() + (60 * 30);
 
-    $subject = "Pesan Portfolio | From " . $nama;
+    $subject = "Pesan Portfolio | From " . $email;
     $email = "zakamaragames@gmail.com";
-
     $message = $pesan;
 
 
     $send = send_email($email, $nama, $email, $subject, $message);
 
     if ($send == TRUE) {
-        echo "<script>alert('Pesan Berhasil Dikirim!')</script>";
+        $swal = 1;
+        echo '<script>
+                setInterval(function () {
+                    window.location.href="index.php"
+                }, 1800);
+            </script>';
     } else {
         var_dump($send);
         die;
@@ -45,69 +45,13 @@ if (isset($_POST['kirim'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
 
+    <!-- sweet alert  -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
     <!-- css  -->
     <link rel="stylesheet" href="assets/css/costum.css">
 </head>
-<style>
-    .navbar {
-        /* background: rgb(6, 2, 78); */
-        /* background: linear-gradient(90deg, rgba(6, 2, 78, 1) 0%, rgba(9, 9, 121, 1) 43%, rgba(24, 4, 105, 1) 100%); */
-        top: 15px;
-        box-shadow: 0px 0px 40px 5px rgba(237, 237, 237, 0.3);
-    }
-
-    .jumbotron {
-        background-color: #11a0ff;
-    }
-
-    #projects {
-        background-color: #11a0ff;
-    }
-
-    .top-icon {
-        background: none;
-        border: solid 1px black;
-        bottom: 20px;
-        right: 50px;
-        transition: 0.9s;
-        z-index: 3;
-    }
-
-    .top-icon:hover {
-        background-color: #11a0ff;
-        transition: 0.9s;
-    }
-
-    #footer {
-        background: #11a0ff;
-        padding-bottom: 10px;
-    }
-
-    .navbar-brand {
-        color: #2e91d3;
-    }
-
-    .lead {
-        color: #eaeaea;
-        letter-spacing: 0.5px;
-    }
-
-    .lead-b {
-        color: #252525;
-    }
-
-    .btn-info {
-        background: #008ce9;
-        color: white;
-        outline: none;
-        border: none;
-    }
-
-    .btn-info:hover {
-        background: #11a0ff;
-        color: white;
-    }
-</style>
 
 <body>
     <div class="top-icon position-fixed rounded-circle">
@@ -302,21 +246,20 @@ if (isset($_POST['kirim'])) {
             <div class="row justify-content-center">
                 <div class="col-lg-6">
                     <form action="" method="post">
-                        <div class="mb-3">
+                        <div class="mb-3 fr">
                             <label for="exampleFormControlInput1" class="form-label">Nama</label>
                             <input name="nama" type="text" class="form-control" id="exampleFormControlInput1" autocomplete="off" />
+                            <p>tes</p>
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 fr">
                             <label for="exampleFormControlInput1" class="form-label">Email</label>
                             <input name="email" type="email" class="form-control" id="exampleFormControlInput1" autocomplete="off" placeholder="name@example.com" />
                         </div>
-                        <div class="mb-3">
+                        <div class="mb-3 fr">
                             <label for="exampleFormControlTextarea1" class="form-label">Pesan</label>
                             <textarea name="pesan" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
-                        <div class="mb-">
-                            <button name="kirim" class="btn btn-primary" type="submit">Kirim</button>
-                        </div>
+                        <button name="kirim" class="btn btn-primary mt-5" type="submit">Kirim</button>
                     </form>
                 </div>
             </div>
@@ -335,7 +278,25 @@ if (isset($_POST['kirim'])) {
 
     <!-- End Footer  -->
 
+    <?php
+
+    if (isset($swal)) {
+        echo "<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Pesan Berhasil Di kirim!',
+        showConfirmButton: false,
+        timer: 1800
+      })
+        </script>";
+    }
+
+    ?>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 </body>
 
 </html>

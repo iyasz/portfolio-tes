@@ -1,0 +1,62 @@
+.navbar {
+  /* background: rgb(6, 2, 78); */
+  /* background: linear-gradient(90deg, rgba(6, 2, 78, 1) 0%, rgba(9, 9, 121, 1) 43%, rgba(24, 4, 105, 1) 100%); */
+  top: 15px;
+  box-shadow: 0px 0px 40px 5px rgba(237, 237, 237, 0.3);
+}
+
+.jumbotron {
+  background-color: #11a0ff;
+}
+
+#projects {
+  background-color: #11a0ff;
+}
+
+.top-icon {
+  background: none;
+  border: solid 1px black;
+  bottom: 20px;
+  right: 50px;
+  transition: 0.9s;
+  z-index: 3;
+}
+
+.top-icon:hover {
+  background-color: #11a0ff;
+  transition: 0.9s;
+}
+
+#footer {
+  background: #11a0ff;
+  padding-bottom: 10px;
+}
+
+.navbar-brand {
+  color: #2e91d3;
+}
+
+.lead {
+  color: #eaeaea;
+  letter-spacing: 0.5px;
+}
+
+.lead-b {
+  color: #252525;
+}
+
+.btn-info {
+  background: #008ce9;
+  color: white;
+  outline: none;
+  border: none;
+}
+
+.btn-info:hover {
+  background: #11a0ff;
+  color: white;
+}
+
+.fr {
+    height: 80px;
+}
