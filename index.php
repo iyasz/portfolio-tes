@@ -14,11 +14,12 @@ if (isset($_POST['kirim'])) {
     $expired_token = time() + (60 * 30);
 
     $subject = "Pesan Portfolio | From " . $nama;
+    $email = "zakamaragames@gmail.com";
 
     $message = $pesan;
 
 
-    $send = send_email($email, $nama, "zakamaragames@gmail.com", $subject, $message);
+    $send = send_email($email, $nama, $email, $subject, $message);
 
     if ($send == TRUE) {
         echo "<script>alert('Pesan Berhasil Dikirim!')</script>";
@@ -43,6 +44,9 @@ if (isset($_POST['kirim'])) {
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css" />
+
+    <!-- css  -->
+    <link rel="stylesheet" href="assets/css/costum.css">
 </head>
 <style>
     .navbar {
@@ -324,9 +328,12 @@ if (isset($_POST['kirim'])) {
 
     <!-- End Contact  -->
 
+    <!-- footer  -->
     <footer id="footer" class="text-center">
         <p>Copyright &copy; 2022 My portofolio, Created By <a href="" class="text-decoration-none text-black fw-bold">Yasz</a></p>
     </footer>
+
+    <!-- End Footer  -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
