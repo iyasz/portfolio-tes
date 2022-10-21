@@ -1,5 +1,32 @@
 <?php
 
+require "function.php";
+
+if (isset($_POST['kirim'])) {
+    $nama = htmlspecialchars($_POST['nama']);
+    $email = htmlspecialchars($_POST['email']);
+    $pesan = htmlspecialchars($_POST['pesan']);
+
+
+    $email = htmlspecialchars($_POST['email']);
+    // $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $email_token = md5(mt_rand());
+    $expired_token = time() + (60 * 30);
+
+    $subject = "Pesan Portfolio | From " . $nama;
+
+    $message = $pesan;
+
+
+    $send = send_email($email, $nama, "zakamaragames@gmail.com", $subject, $message);
+
+    if ($send == TRUE) {
+        echo "<script>alert('Pesan Berhasil Dikirim!')</script>";
+    } else {
+        var_dump($send);
+        die;
+    }
+}
 
 
 ?>
@@ -284,7 +311,7 @@
                             <textarea name="pesan" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                         </div>
                         <div class="mb-">
-                            <button class="btn btn-primary" type="submit">Kirim</button>
+                            <button name="kirim" class="btn btn-primary" type="submit">Kirim</button>
                         </div>
                     </form>
                 </div>
