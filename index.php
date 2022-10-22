@@ -2,30 +2,46 @@
 
 require "function.php";
 
+$errs = [];
+
 if (isset($_POST['kirim'])) {
     $nama = htmlspecialchars($_POST['nama']);
     $email = htmlspecialchars($_POST['email']);
     $pesan = htmlspecialchars($_POST['pesan']);
 
+    if(empty($nama) == TRUE){
+        $errs['nama'] = "Masukan Nama Anda";
+    }
 
+    if(empty($email) == TRUE){
+        $errs['email'] = "Masukan Email Anda";
+    }elseif (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == FALSE) {
+        $errs['email'] = "Email tidak valid";
+    }
 
-    $subject = "Pesan Portfolio | From " . $email;
-    $email = "zakamaragames@gmail.com";
-    $message = $pesan;
+    if(empty($pesan) == TRUE){
+        $errs['pesan'] = "Masukkan pesan anda"; 
+    }
 
+    if(empty($errs)){
 
-    $send = send_email($email, $nama, $email, $subject, $message);
-
-    if ($send == TRUE) {
-        $swal = 1;
-        echo '<script>
-                setInterval(function () {
-                    window.location.href="index.php"
-                }, 1800);
-            </script>';
-    } else {
-        var_dump($send);
-        die;
+        $subject = "Pesan Portfolio | From " . $email;
+        $email = "zakamaragames@gmail.com";
+        $message = $pesan;
+    
+        $send = send_email($email, $nama, $email, $subject, $message);
+    
+        if ($send == TRUE) {
+            $swal = 1;
+            echo '<script>
+                    setInterval(function () {
+                        window.location.href="index.php"
+                    }, 1800);
+                </script>';
+        } else {
+            var_dump($send);
+            die;
+        }
     }
 }
 
@@ -249,15 +265,17 @@ if (isset($_POST['kirim'])) {
                         <div class="mb-3 fr">
                             <label for="exampleFormControlInput1" class="form-label">Nama</label>
                             <input name="nama" type="text" class="form-control" id="exampleFormControlInput1" autocomplete="off" />
-                            <p>tes</p>
+                            <div class="invalid-feedback"><?= $errors['nama'] ?? ''; ?></div>
                         </div>
                         <div class="mb-3 fr">
                             <label for="exampleFormControlInput1" class="form-label">Email</label>
                             <input name="email" type="email" class="form-control" id="exampleFormControlInput1" autocomplete="off" placeholder="name@example.com" />
+                            <div class="invalid-feedback"><?= $errors['email'] ?? ''; ?></div>
                         </div>
                         <div class="mb-3 fr">
                             <label for="exampleFormControlTextarea1" class="form-label">Pesan</label>
                             <textarea name="pesan" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                            <div class="invalid-feedback"><?= $errors['pesan'] ?? ''; ?></div>
                         </div>
                         <button name="kirim" class="btn btn-primary mt-5" type="submit">Kirim</button>
                     </form>
