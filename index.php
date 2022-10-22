@@ -3,34 +3,57 @@
 require "function.php";
 
 $errs = [];
+$olds = [];
 
 if (isset($_POST['kirim'])) {
     $nama = htmlspecialchars($_POST['nama']);
     $email = htmlspecialchars($_POST['email']);
     $pesan = htmlspecialchars($_POST['pesan']);
 
-    if(empty($nama) == TRUE){
+
+    if (empty($nama) == TRUE) {
         $errs['nama'] = "Masukan Nama Anda";
+        $olds['email'] = $_POST['email'];
+        $olds['pesan'] = $_POST['pesan'];
+
+        // echo "<script>location.replace('index.php#contact')</script>";
     }
 
-    if(empty($email) == TRUE){
+    if (empty($email) == TRUE) {
         $errs['email'] = "Masukan Email Anda";
-    }elseif (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == FALSE) {
+
+        $olds['nama'] = $_POST['nama'];
+        $olds['pesan'] = $_POST['pesan'];
+
+        // echo "<script>location.replace('index.php#contact')</script>";
+    } elseif (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL) == FALSE) {
         $errs['email'] = "Email tidak valid";
+        $olds['nama'] = $_POST['nama'];
+        $olds['pesan'] = $_POST['pesan'];
+
+        // echo "<script>location.replace('index.php#contact')</script>";
     }
 
-    if(empty($pesan) == TRUE){
-        $errs['pesan'] = "Masukkan pesan anda"; 
+    if (empty($pesan) == TRUE) {
+        $errs['pesan'] = "Masukkan pesan anda";
+        $olds['nama'] = $_POST['nama'];
+        $olds['email'] = $_POST['email'];
+
+        // echo "<script>location.replace('index.php#contact')</script>";
     }
 
-    if(empty($errs)){
+    if (empty($errs) == FALSE) {
+        echo "<script>window.location.replace('#contact')</script>";
+    }
+
+    if (empty($errs) == TRUE) {
 
         $subject = "Pesan Portfolio | From " . $email;
         $email = "zakamaragames@gmail.com";
         $message = $pesan;
-    
+
         $send = send_email($email, $nama, $email, $subject, $message);
-    
+
         if ($send == TRUE) {
             $swal = 1;
             echo '<script>
@@ -71,7 +94,7 @@ if (isset($_POST['kirim'])) {
 
 <body>
     <div class="top-icon position-fixed rounded-circle">
-        <a href="#profil" class="text-black px-2"><i class="bi bi-arrow-up-short fs-3"></i></a>
+        <a href="#profil" class="text-black px-1"><i class="bi bi-arrow-up-short fs-3"></i></a>
     </div>
 
     <!-- navbar -->
@@ -85,7 +108,7 @@ if (isset($_POST['kirim'])) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link mx-0 mx-lg-2" href="">Home</a>
+                        <a class="nav-link mx-0 mx-lg-2" href="#profil">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link mx-0 mx-lg-2" href="#about">About</a>
@@ -110,7 +133,7 @@ if (isset($_POST['kirim'])) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link mx-0 mx-lg-2" href="">Home</a>
+                        <a class="nav-link mx-0 mx-lg-2" href="#profil">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link mx-0 mx-lg-2" href="#about">About</a>
@@ -264,18 +287,18 @@ if (isset($_POST['kirim'])) {
                     <form action="" method="post">
                         <div class="mb-3 fr">
                             <label for="exampleFormControlInput1" class="form-label">Nama</label>
-                            <input name="nama" type="text" class="form-control" id="exampleFormControlInput1" autocomplete="off" />
-                            <div class="invalid-feedback"><?= $errors['nama'] ?? ''; ?></div>
+                            <input name="nama" type="text" value="<?= $olds['nama'] ?? ''; ?>" class=" form-control <?= isset($errs['nama']) ? 'is-invalid' : '' ?>" id="exampleFormControlInput1" autocomplete="off" />
+                            <div class="invalid-feedback"><?= $errs['nama'] ?? ''; ?></div>
                         </div>
                         <div class="mb-3 fr">
                             <label for="exampleFormControlInput1" class="form-label">Email</label>
-                            <input name="email" type="email" class="form-control" id="exampleFormControlInput1" autocomplete="off" placeholder="name@example.com" />
-                            <div class="invalid-feedback"><?= $errors['email'] ?? ''; ?></div>
+                            <input name="email" type="email" value="<?= $olds['email'] ?? ''; ?>" class="form-control <?= isset($errs['email']) ? 'is-invalid' : '' ?>" id="exampleFormControlInput1" autocomplete="off" placeholder="name@example.com" />
+                            <div class="invalid-feedback"><?= $errs['email'] ?? ''; ?></div>
                         </div>
-                        <div class="mb-3 fr">
+                        <div class="mb-4 fr">
                             <label for="exampleFormControlTextarea1" class="form-label">Pesan</label>
-                            <textarea name="pesan" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            <div class="invalid-feedback"><?= $errors['pesan'] ?? ''; ?></div>
+                            <textarea name="pesan" value="" class="form-control <?= isset($errs['pesan']) ? 'is-invalid' : '' ?>" id="exampleFormControlTextarea1" rows="3"><?= $olds['pesan'] ?? ''; ?></textarea>
+                            <div class="invalid-feedback"><?= $errs['pesan'] ?? ''; ?></div>
                         </div>
                         <button name="kirim" class="btn btn-primary mt-5" type="submit">Kirim</button>
                     </form>
