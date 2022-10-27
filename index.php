@@ -90,6 +90,7 @@ if (isset($_POST['kirim'])) {
 
     <!-- css  -->
     <link rel="stylesheet" href="assets/css/costum.css">
+    <link rel="stylesheet" href="assets/css/app.css">
 </head>
 
 <body>
