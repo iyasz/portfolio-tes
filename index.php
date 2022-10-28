@@ -155,6 +155,31 @@ if (isset($_POST['kirim'])) {
         </div>
     </nav>
 
+    <nav class="navbar navbar-expand-lg bg-light" id="navbar">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
     <!-- end navbar -->
 
     <section id="profil" class="jumbotron text-center py-5">
@@ -216,7 +241,7 @@ if (isset($_POST['kirim'])) {
                 </div>
             </div>
             <div class="row gy-4 justify-content-center gallery">
-                <div class="col-10 col-md-6 col-lg-4">
+                <div class="col-10 col-md-6 col-lg-4 d-flex align-items-stretch">
                     <div class="card shadow ">
                         <a href="assets/projects/ai.jpg">
                             <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
@@ -228,10 +253,22 @@ if (isset($_POST['kirim'])) {
                         </div>
                     </div>
                 </div>
-                <div class="col-10 col-md-6 col-lg-4">
+                <div class="col-10 col-md-6 col-lg-4 d-flex align-items-stretch">
                     <div class="card shadow ">
-                        <a href="assets/projects/ai.jpg">
-                            <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
+                        <a href="assets/projects/tu.jpg">
+                            <img src="assets/projects/tu.jpg" class="card-img-top" alt="..." />
+                        </a>
+                        <div class="card-body">
+                            <h5>Web Restaurant PHP</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
+                            <button class="btn btn-info">Visit in Github</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 col-md-6 col-lg-4 d-flex align-items-stretch">
+                    <div class="card shadow ">
+                        <a href="assets/projects/tri.jpg">
+                            <img src="assets/projects/tri.jpg" class="card-img-top" alt="..." />
                         </a>
                         <div class="card-body">
                             <h5>Web Restaurant PHP</h5>
@@ -299,7 +336,7 @@ if (isset($_POST['kirim'])) {
                 </div>
             </div>
             <div class="row justify-content-center">
-                <div class="col-lg-6">
+                <div class="col-10 col-md-8 col-lg-6">
                     <form action="" method="post">
                         <div class="mb-3 fr">
                             <label for="exampleFormControlInput1" class="form-label">Nama</label>
@@ -358,6 +395,18 @@ if (isset($_POST['kirim'])) {
     <script src="assets/vendor/simplelightbox/simple-lightbox.min.js"></script>
     <script>
         var lightbox = new SimpleLightbox('.gallery a');
+
+        window.onscroll = function() {
+            scrollFunction()
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+                document.getElementById("navbar").style.top = "0";
+            } else {
+                document.getElementById("navbar").style.top = "-58px";
+            }
+        }
     </script>
 
 
