@@ -6,14 +6,21 @@
 }
 
 #navbar {
+  background: rgb(47,168,247);
+  background: linear-gradient(90deg, rgba(47,168,247,1) 0%, rgba(43,167,250,1) 100%);
   position: fixed;
-  top: -59px;
+  top: -69px;
   width: 100%;
   display: block;
   transition: top 0.3s;
   z-index: 4;
   border-bottom: solid 1px #80c7f7;
+  box-shadow: 0px 7px 60px -8px rgba(43,167,250,0.59);
+-webkit-box-shadow: 0px 7px 60px -8px rgba(43,167,250,0.59);
+-moz-box-shadow: 0px 7px 60px -8px rgba(43,167,250,0.59);
 }
+
+
 
 .jumbotron {
   background-color: #11a0ff;
@@ -25,11 +32,20 @@
 
 .top-icon {
   background: none;
+  position: fixed;
   border: solid 1px black;
-  bottom: 20px;
-  right: 50px;
+  width: 40px;
+  height: 40px;
+  bottom: 40px;
+  right: 40px;
   transition: 0.9s;
   z-index: 5;
+  border-radius: 50%;
+  color: black;
+}
+
+.fs-top {
+  font-size: 23px !important;
 }
 
 .top-icon:hover {

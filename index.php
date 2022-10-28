@@ -83,6 +83,7 @@ if (isset($_POST['kirim'])) {
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
 
+
     <!-- sweet alert  -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -92,6 +93,12 @@ if (isset($_POST['kirim'])) {
     <!-- light box  -->
     <link rel="stylesheet" href="assets/vendor/simplelightbox/simple-lightbox.min.css">
 
+    <!-- swipper js  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+
+    <!-- owl carousel  -->
+    <link rel="stylesheet" href="assets/vendor/owlCarousel/dist/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="assets/vendor/owlCarousel/dist/assets/owl.theme.default.min.css">
 
     <!-- css  -->
     <link rel="stylesheet" href="assets/css/costum.css">
@@ -99,11 +106,15 @@ if (isset($_POST['kirim'])) {
 </head>
 
 <body>
-    <div class="top-icon position-fixed rounded-circle">
-        <a href="#profil" class="text-black px-1"><i class="bi bi-arrow-up-short fs-3"></i></a>
-    </div>
+
+    <button class="top-icon" onclick="location.replace('#')">
+        <i class="bi bi-arrow-up-short fs-top "></i>
+    </button>
+
 
     <!-- navbar -->
+
+    <!-- navbar top  -->
 
     <nav class="navbar navbar-expand-sm py-2 position-absolute end-0 start-0 mx-4 rounded-pill d-none d-md-block d-lg-block bg-white">
         <div class="container">
@@ -130,7 +141,10 @@ if (isset($_POST['kirim'])) {
         </div>
     </nav>
 
-    <nav class="navbar navbar-expand-lg bg-white py-2 position-absolute top-0 end-0 start-0 d-block d-md-none d-lg-none">
+
+    <!-- mobile navbar  -->
+
+    <nav class="navbar navbar-expand-lg bg-white py-2 fixed-top top-0 end-0 start-0 d-block d-md-none d-lg-none">
         <div class="container">
             <a class="navbar-brand fw-bold" href="">Yasz Avellia!</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -155,25 +169,28 @@ if (isset($_POST['kirim'])) {
         </div>
     </nav>
 
-    <nav class="navbar navbar-expand-lg bg-light" id="navbar">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+
+    <!-- responsive scroll navbar -->
+
+    <nav class="navbar navbar-expand-sm navbar-dark d-none d-md-block d-lg-block" id="navbar">
+        <div class="container ">
+            <a class="navbar-brand text-white fw-bold" href="#">Yasz Avellia!</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link text-white fw-semibold mx-2" href=" #">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link text-white fw-semibold mx-2" href="#about">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
+                        <a class="nav-link text-white fw-semibold mx-2" href="#projects">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link disabled">Disabled</a>
+                        <a class="nav-link text-white fw-semibold mx-2" href="#contact">Contact</a>
                     </li>
                 </ul>
             </div>
@@ -181,6 +198,8 @@ if (isset($_POST['kirim'])) {
     </nav>
 
     <!-- end navbar -->
+
+
 
     <section id="profil" class="jumbotron text-center py-5">
         <div class="pt-5">
@@ -204,22 +223,20 @@ if (isset($_POST['kirim'])) {
                     <h1 class="fw-bold mb-5 lead-b">About</h1>
                 </div>
             </div>
-            <div class="row justify-content-center mb-lg-4 mb-md-auto">
-                <div class="col-md-4 mb-lg-0 mb-md-5 mb-5">
-                    <p class="text-center">Lorem , dolor sit amet consectetur adipisicing elit. Dolore sunt ducimus fugit dolores odio rem perferendis voluptatibus sint esse placeat.</p>
+            <div class="row justify-content-center gy-4 owl-carousel">
+                <div class="">
+                    <p class="text-center">Lorem , dolor sit amet consectetur adipisicing elit. Dolore sunt ducimus fugit dolores odio rem perferendis voluptatibus sint esse aw.</p>
                 </div>
-                <div class="col-md-4 mb-lg-0 mb-md-5 mb-5">
+                <div class="">
                     <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis fuga atque quia consectetur quo cumque, amet est sint facere.</p>
                 </div>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-md-4 mb-lg-0 mb-md-5 mb-5">
-                    <p class="text-center">Lorem , dolor sit amet consectetur adipisicing elit. Dolore sunt ducimus fugit dolores odio rem perferendis voluptatibus sint esse placeat.</p>
-                </div>
-                <div class="col-md-4 mb-lg-0 mb-md-5 mb-5">
+                <div class="">
                     <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis fuga atque quia consectetur quo cumque, amet est sint facere.</p>
                 </div>
-                <div class="col-md-4 mb-lg-0 mb-md-5 mb-5">
+                <div class="">
+                    <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis fuga atque quia consectetur quo cumque, amet est sint facere.</p>
+                </div>
+                <div class="">
                     <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis fuga atque quia consectetur quo cumque, amet est sint facere.</p>
                 </div>
             </div>
@@ -240,85 +257,48 @@ if (isset($_POST['kirim'])) {
                     <h1 class="text-center fw-bold mb-5 text-white">My Projects</h1>
                 </div>
             </div>
-            <div class="row gy-4 justify-content-center gallery">
-                <div class="col-10 col-md-6 col-lg-4 d-flex align-items-stretch">
-                    <div class="card shadow ">
-                        <a href="assets/projects/ai.jpg">
-                            <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
-                        </a>
-                        <div class="card-body">
-                            <h5>Web Restaurant PHP</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
-                            <button class="btn btn-info">Visit in Github</button>
+            <div class="swiper">
+                <div class="row gy-4 justify-content-center gallery ">
+                    <div class="col-10 col-md-6 col-lg-4 d-flex align-items-stretch ">
+                        <div class="card shadow ">
+                            <a href="assets/projects/ai.jpg">
+                                <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
+                            </a>
+                            <div class="card-body">
+                                <h5>Web Restaurant PHP</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
+                                <button class="btn btn-info">Visit in Github</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-10 col-md-6 col-lg-4 d-flex align-items-stretch ">
+                        <div class="card shadow ">
+                            <a href="assets/projects/tu.jpg">
+                                <img src="assets/projects/tu.jpg" class="card-img-top" alt="..." />
+                            </a>
+                            <div class="card-body">
+                                <h5>Web Restaurant PHP</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
+                                <button class="btn btn-info">Visit in Github</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-10 col-md-6 col-lg-4 d-flex align-items-stretch ">
+                        <div class="card shadow ">
+                            <a href="assets/projects/tri.jpg">
+                                <img src="assets/projects/tri.jpg" class="card-img-top" alt="..." />
+                            </a>
+                            <div class="card-body">
+                                <h5>Web Restaurant PHP</h5>
+                                <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
+                                <button class="btn btn-info">Visit in Github</button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-10 col-md-6 col-lg-4 d-flex align-items-stretch">
-                    <div class="card shadow ">
-                        <a href="assets/projects/tu.jpg">
-                            <img src="assets/projects/tu.jpg" class="card-img-top" alt="..." />
-                        </a>
-                        <div class="card-body">
-                            <h5>Web Restaurant PHP</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
-                            <button class="btn btn-info">Visit in Github</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-10 col-md-6 col-lg-4 d-flex align-items-stretch">
-                    <div class="card shadow ">
-                        <a href="assets/projects/tri.jpg">
-                            <img src="assets/projects/tri.jpg" class="card-img-top" alt="..." />
-                        </a>
-                        <div class="card-body">
-                            <h5>Web Restaurant PHP</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
-                            <button class="btn btn-info">Visit in Github</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="col-10 col-md-6 col-lg-4">
-                    <div class="card shadow  mb-lg-0">
-                        <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <h5>Web Restaurant PHP</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
-                            <button class="btn btn-info">Visit in Github</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-10 col-md-6 col-lg-4">
-                    <div class="card shadow  mb-lg-0">
-                        <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <h5>Web Restaurant PHP</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
-                            <button class="btn btn-info">Visit in Github</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-10 col-md-6 col-lg-4">
-                    <div class="card shadow  mb-lg-0">
-                        <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <h5>Web Restaurant PHP</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
-                            <button class="btn btn-info">Visit in Github</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-10 col-md-6 col-lg-4">
-                    <div class="card shadow  mb-lg-0">
-                        <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            <h5>Web Restaurant PHP</h5>
-                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
-                            <button class="btn btn-info">Visit in Github</button>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
+
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
             <path fill="#fff" fill-opacity="1" d="M0,160L48,133.3C96,107,192,53,288,69.3C384,85,480,171,576,181.3C672,192,768,128,864,101.3C960,75,1056,85,1152,96C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
         </svg>
@@ -390,9 +370,16 @@ if (isset($_POST['kirim'])) {
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
     <script src="assets/vendor/simplelightbox/simple-lightbox.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
+    <script src="assets/vendor/owlCarousel/docs/assets/vendors/jquery.min.js"></script>
+    <script src="assets/vendor/owlCarousel/dist/owl.carousel.min.js"></script>
+
     <script>
         var lightbox = new SimpleLightbox('.gallery a');
 
@@ -401,12 +388,60 @@ if (isset($_POST['kirim'])) {
         };
 
         function scrollFunction() {
-            if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+            if (document.body.scrollTop > 180 || document.documentElement.scrollTop > 180) {
                 document.getElementById("navbar").style.top = "0";
             } else {
-                document.getElementById("navbar").style.top = "-58px";
+                document.getElementById("navbar").style.top = "-69px";
+                document.getElementById("navbar").style.boxShadow = "0";
             }
         }
+
+        // const swiper = new Swiper('.swiper', {
+        //     // Optional parameters
+        //     direction: 'horizontal',
+        //     loop: true,
+
+        //     // If we need pagination
+        //     pagination: {
+        //         el: '.swiper-pagination',
+        //     },
+
+        //     // Navigation arrows
+        //     navigation: {
+        //         nextEl: '.swiper-button-next',
+        //         prevEl: '.swiper-button-prev',
+        //     },
+
+        //     // And if we need scrollbar
+        //     scrollbar: {
+        //         el: '.swiper-scrollbar',
+        //     },
+        // });
+
+        // $(document).ready(function() {
+        //     $(".owl-carousel").owlCarousel();
+        // });
+
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: false
+                },
+                577: {
+                    items: 2,
+                    nav: false
+                },
+                768: {
+                    items: 3,
+                    nav: false,
+                    loop: false,
+                }
+            }
+        })
     </script>
 
 
