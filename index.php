@@ -90,7 +90,7 @@ if (isset($_POST['kirim'])) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
     <!-- light box  -->
-    link
+    <link rel="stylesheet" href="assets/vendor/simplelightbox/simple-lightbox.min.css">
 
 
     <!-- css  -->
@@ -215,61 +215,71 @@ if (isset($_POST['kirim'])) {
                     <h1 class="text-center fw-bold mb-5 text-white">My Projects</h1>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-md-12">
-                    <div class="row gy-4 justify-content-center">
-                        <div class="col-md-4">
-                            <div class="card shadow mb-5 mb-lg-0">
-                                <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                    <h5>Web Restaurant PHP</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
-                                    <button class="btn btn-info">Visit in Github</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card shadow mb-5 mb-lg-0">
-                                <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                    <h5>Web Restaurant PHP</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
-                                    <button class="btn btn-info">Visit in Github</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card shadow mb-5 mb-lg-0">
-                                <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                    <h5>Web Restaurant PHP</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
-                                    <button class="btn btn-info">Visit in Github</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card shadow mb-5 mb-lg-0">
-                                <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                    <h5>Web Restaurant PHP</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
-                                    <button class="btn btn-info">Visit in Github</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card shadow mb-5 mb-lg-0">
-                                <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                    <h5>Web Restaurant PHP</h5>
-                                    <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
-                                    <button class="btn btn-info">Visit in Github</button>
-                                </div>
-                            </div>
+            <div class="row gy-4 justify-content-center gallery">
+                <div class="col-10 col-md-6 col-lg-4">
+                    <div class="card shadow ">
+                        <a href="assets/projects/ai.jpg">
+                            <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
+                        </a>
+                        <div class="card-body">
+                            <h5>Web Restaurant PHP</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
+                            <button class="btn btn-info">Visit in Github</button>
                         </div>
                     </div>
                 </div>
+                <div class="col-10 col-md-6 col-lg-4">
+                    <div class="card shadow ">
+                        <a href="assets/projects/ai.jpg">
+                            <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
+                        </a>
+                        <div class="card-body">
+                            <h5>Web Restaurant PHP</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
+                            <button class="btn btn-info">Visit in Github</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-10 col-md-6 col-lg-4">
+                    <div class="card shadow  mb-lg-0">
+                        <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5>Web Restaurant PHP</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
+                            <button class="btn btn-info">Visit in Github</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 col-md-6 col-lg-4">
+                    <div class="card shadow  mb-lg-0">
+                        <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5>Web Restaurant PHP</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
+                            <button class="btn btn-info">Visit in Github</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 col-md-6 col-lg-4">
+                    <div class="card shadow  mb-lg-0">
+                        <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5>Web Restaurant PHP</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
+                            <button class="btn btn-info">Visit in Github</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-10 col-md-6 col-lg-4">
+                    <div class="card shadow  mb-lg-0">
+                        <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
+                        <div class="card-body">
+                            <h5>Web Restaurant PHP</h5>
+                            <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
+                            <button class="btn btn-info">Visit in Github</button>
+                        </div>
+                    </div>
+                </div> -->
             </div>
         </div>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -342,8 +352,13 @@ if (isset($_POST['kirim'])) {
     <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
+    <script src="assets/vendor/simplelightbox/simple-lightbox.min.js"></script>
+    <script>
+        var lightbox = new SimpleLightbox('.gallery a');
+    </script>
 
 
 </body>

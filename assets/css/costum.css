@@ -36,6 +36,10 @@
   color: #2e91d3;
 }
 
+.navbar-brand:hover {
+  color: #3099df;
+}
+
 .lead {
   color: #eaeaea;
   letter-spacing: 0.5px;
