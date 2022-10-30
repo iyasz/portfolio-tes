@@ -49,12 +49,17 @@ if (isset($_POST['kirim'])) {
     if (empty($errs) == TRUE) {
 
         $subject = "Pesan Portfolio | From " . $email;
-        $email = "zakamaragames@gmail.com";
+        $subjectFeed = "Pesan Anda Telah Di kirim";
+
+        $emails = "zakamaragames@gmail.com";
+
+        $messageFeed = "Terimakasih!, Pesan anda telah berhasil terkirim!";
         $message = $pesan;
 
-        $send = send_email($email, $nama, $email, $subject, $message);
+        $send = send_email($email, $nama, $emails, $subject, $message);
 
-        if ($send == TRUE) {
+        $feedback = feedback($emails, $email, $subjectFeed, $messageFeed);
+        if ($send == TRUE and $feedback == TRUE) {
             $swal = 1;
             echo '<script>
                     setInterval(function () {
@@ -83,6 +88,11 @@ if (isset($_POST['kirim'])) {
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous" />
 
+    <!-- open sans font  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
 
     <!-- sweet alert  -->
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -103,6 +113,7 @@ if (isset($_POST['kirim'])) {
     <!-- css  -->
     <link rel="stylesheet" href="assets/css/costum.css">
     <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="assets/css/font.css">
 </head>
 
 <body>
@@ -118,12 +129,12 @@ if (isset($_POST['kirim'])) {
 
     <nav class="navbar navbar-expand-sm py-2 position-absolute end-0 start-0 mx-4 rounded-pill d-none d-md-block d-lg-block bg-white">
         <div class="container">
-            <a class="navbar-brand fw-bold" href="">Yasz Avellia!</a>
+            <a class="navbar-brand fw-700" href="">Yasz Avellia!</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto fw-400">
                     <li class="nav-item">
                         <a class="nav-link mx-0 mx-lg-2" href="#profil">Home</a>
                     </li>
@@ -174,12 +185,12 @@ if (isset($_POST['kirim'])) {
 
     <nav class="navbar navbar-expand-sm navbar-dark d-none d-md-block d-lg-block" id="navbar">
         <div class="container ">
-            <a class="navbar-brand text-white fw-bold" href="#">Yasz Avellia!</a>
+            <a class="navbar-brand text-white  fw-700" href="#">Yasz Avellia!</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
+                <ul class="navbar-nav ms-auto fw-400">
                     <li class="nav-item">
                         <a class="nav-link text-white fw-semibold mx-2" href=" #">Home</a>
                     </li>
@@ -204,8 +215,8 @@ if (isset($_POST['kirim'])) {
     <section id="profil" class="jumbotron text-center py-5">
         <div class="pt-5">
             <img src="assets/aj.jpg" class="rounded-circle img-thumbnail profile-img" width="200px" alt="" />
-            <h1 class="display-4 text-white fw-semibold mt-2">Yasz Avellia</h1>
-            <p class="lead">Pelajar Malas | Mau Jadi Anime</p>
+            <h1 class="display-4 text-white fw-700 mt-2">Yasz Avellia</h1>
+            <p class="lead fw-300">Pelajar Malas | Mau Jadi Anime</p>
         </div>
     </section>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
@@ -220,10 +231,10 @@ if (isset($_POST['kirim'])) {
         <div class="container text-center">
             <div class="row">
                 <div class="col-12 text-center">
-                    <h1 class="fw-bold mb-5 lead-b">About</h1>
+                    <h1 class="fw-700 mb-5 lead-b">About</h1>
                 </div>
             </div>
-            <div class="row justify-content-center gy-4 owl-carousel">
+            <div class="row justify-content-center gy-4 owl-carousel fw-400">
                 <div class="">
                     <p class="text-center">Lorem , dolor sit amet consectetur adipisicing elit. Dolore sunt ducimus fugit dolores odio rem perferendis voluptatibus sint esse aw.</p>
                 </div>
@@ -254,7 +265,7 @@ if (isset($_POST['kirim'])) {
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <h1 class="text-center fw-bold mb-5 text-white">My Projects</h1>
+                    <h1 class="text-center fw-700 mb-5 text-white">My Projects</h1>
                 </div>
             </div>
             <div class="swiper">
@@ -265,7 +276,7 @@ if (isset($_POST['kirim'])) {
                                 <img src="assets/projects/ai.jpg" class="card-img-top" alt="..." />
                             </a>
                             <div class="card-body">
-                                <h5>Web Restaurant PHP</h5>
+                                <h5 class="">Web Restaurant PHP</h5>
                                 <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium</p>
                                 <button class="btn btn-info">Visit in Github</button>
                             </div>
@@ -312,7 +323,7 @@ if (isset($_POST['kirim'])) {
         <div class="container">
             <div class="row text-center mb-3">
                 <div class="col">
-                    <h1 class="fw-bold lead-b">Contact Me</h1>
+                    <h1 class="fw-700 lead-b">Contact Me</h1>
                 </div>
             </div>
             <div class="row justify-content-center">
@@ -347,7 +358,7 @@ if (isset($_POST['kirim'])) {
 
     <!-- footer  -->
     <footer id="footer" class="text-center">
-        <p>Copyright &copy; 2022 My portofolio, Created By <a href="" class="text-decoration-none text-black fw-bold">Yasz</a></p>
+        <p class="fw-400">Copyright &copy; 2022 My portofolio, Created By <a href="" class="text-decoration-none text-black fw-600">Yasz</a></p>
     </footer>
 
     <!-- End Footer  -->

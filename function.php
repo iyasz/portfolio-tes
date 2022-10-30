@@ -36,3 +36,30 @@ function send_email($from, $from_name, $to, $subject, $message)
         return "Mailer Error: $mail->ErrorInfo";
     }
 }
+
+function feedback($from, $to, $subject, $message)
+{
+    $mail = new PHPMailer(true);
+
+    $mail->isSMTP();
+    $mail->Host = "smtp.gmail.com";
+    $mail->SMTPAuth = true;
+    $mail->Username = "zakamaragames@gmail.com";
+    $mail->Password = "cfxatavqrardcuhv";
+    $mail->SMTPSecure = 'ssl';
+    $mail->Port = 465;
+
+    $mail->setFrom($from, $from);
+    $mail->addAddress($to);
+
+    $mail->isHTML(true);
+
+    $mail->Subject = $subject;
+    $mail->Body = $message;
+
+    if ($mail->send()) {
+        return true;
+    } else {
+        return "Mailer Error: $mail->ErrorInfo";
+    }
+}
