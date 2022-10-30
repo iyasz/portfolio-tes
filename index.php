@@ -381,6 +381,19 @@ if (isset($_POST['kirim'])) {
     <script src="assets/vendor/owlCarousel/dist/owl.carousel.min.js"></script>
 
     <script>
+        // section navbar 
+        $(".nav-link").on("click", function(e) {
+            var linkHref = $(this).attr("href");
+            $("html, body").animate({
+                    scrollTop: $(linkHref).offset().top - 94,
+                },
+                0
+            );
+            return false;
+        })
+
+        // lightbox 
+
         var lightbox = new SimpleLightbox('.gallery a');
 
         window.onscroll = function() {
