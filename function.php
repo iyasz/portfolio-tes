@@ -37,7 +37,7 @@ function send_email($from, $from_name, $to, $subject, $message)
     }
 }
 
-function feedback($from, $to, $subject, $message)
+function feedback($from, $from_name, $to, $subject, $message)
 {
     $mail = new PHPMailer(true);
 
@@ -49,7 +49,7 @@ function feedback($from, $to, $subject, $message)
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
 
-    $mail->setFrom($from, $from);
+    $mail->setFrom($from, $from_name);
     $mail->addAddress($to);
 
     $mail->isHTML(true);

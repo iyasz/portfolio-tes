@@ -52,13 +52,14 @@ if (isset($_POST['kirim'])) {
         $subjectFeed = "Pesan Anda Telah Di kirim";
 
         $emails = "zakamaragames@gmail.com";
+        $namas = "Yasz Avellia!";
 
         $messageFeed = "Terimakasih!, Pesan anda telah berhasil terkirim!";
         $message = $pesan;
 
         $send = send_email($email, $nama, $emails, $subject, $message);
 
-        $feedback = feedback($emails, $email, $subjectFeed, $messageFeed);
+        $feedback = feedback($emails, $namas, $email, $subjectFeed, $messageFeed);
         if ($send == TRUE and $feedback == TRUE) {
             $swal = 1;
             echo '<script>
@@ -406,6 +407,8 @@ if (isset($_POST['kirim'])) {
         // lightbox 
 
         var lightbox = new SimpleLightbox('.gallery a');
+
+        // navbar responsive 
 
         window.onscroll = function() {
             scrollFunction()
