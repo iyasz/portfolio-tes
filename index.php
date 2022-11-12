@@ -119,7 +119,7 @@ if (isset($_POST['kirim'])) {
 
 <body>
 
-    <button class="top-icon" onclick="location.replace('#')">
+    <button class="top-icon" id="top-icon">
         <i class="bi bi-arrow-up-short fs-top "></i>
     </button>
 
@@ -193,7 +193,7 @@ if (isset($_POST['kirim'])) {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto fw-400">
                     <li class="nav-item">
-                        <a class="nav-link text-white fw-semibold mx-2" href=" #">Home</a>
+                        <a class="nav-link text-white fw-semibold mx-2" href="#profil">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-white fw-semibold mx-2" href="#about">About</a>
@@ -395,12 +395,26 @@ if (isset($_POST['kirim'])) {
     <script>
         // section navbar 
         $(".nav-link").on("click", function(e) {
+            e.preventDefault()
+
             var linkHref = $(this).attr("href");
             $("html, body").animate({
                     scrollTop: $(linkHref).offset().top - 94,
                 },
                 0
             );
+            return false;
+        })
+
+
+        $(".top-icon").on("click", function(e) {
+            e.preventDefault()
+
+            $("html, body").animate({
+                    scrollTop: 0,
+                },
+                0
+            )
             return false;
         })
 
@@ -412,6 +426,7 @@ if (isset($_POST['kirim'])) {
 
         window.onscroll = function() {
             scrollFunction()
+            scrollTopIcon()
         };
 
         function scrollFunction() {
@@ -420,6 +435,14 @@ if (isset($_POST['kirim'])) {
             } else {
                 document.getElementById("navbar").style.top = "-69px";
                 document.getElementById("navbar").style.boxShadow = "0";
+            }
+        }
+
+        function scrollTopIcon() {
+            if (document.body.scrollTop > 180 || document.documentElement.scrollTop > 180) {
+                document.getElementById("top-icon").style.bottom = "40px";
+            } else {
+                document.getElementById("top-icon").style.bottom = "-40px";
             }
         }
 
