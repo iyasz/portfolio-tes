@@ -23,13 +23,16 @@ function send_email($from, $from_name, $to, $subject, $message)
     $mail->Port = 465;
 
     $mail->setFrom($from, $from_name);
-    $mail->addAddress($to);
+    $mail->addAddress($to, $from_name);
 
     $mail->isHTML(true);
 
     $mail->Subject = $subject;
+    ob_start();
+    include('');
     $mail->Body = $message;
-
+    // ob_get_clean();
+    ob_end_clean();
     if ($mail->send()) {
         return true;
     } else {
