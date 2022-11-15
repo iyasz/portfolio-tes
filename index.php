@@ -57,7 +57,11 @@ if (isset($_POST['kirim'])) {
         $messageFeed = "Terimakasih!, Pesan anda telah berhasil terkirim!";
         $message = $pesan;
 
-        $send = send_email($email, $nama, $emails, $subject, $message);
+        //send
+
+        $send = send_email($email, $nama, $email, $subject, $message);
+
+        //feedback
 
         $feedback = feedback($emails, $namas, $email, $subjectFeed, $messageFeed);
         if ($send == TRUE and $feedback == TRUE) {
