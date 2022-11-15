@@ -49,12 +49,12 @@ if (isset($_POST['kirim'])) {
     if (empty($errs) == TRUE) {
 
         $subject = "Pesan Portfolio | From " . $email;
-        $subjectFeed = "Pesan Anda Telah Di kirim";
+        $subjectFeed = "Pesan Anda Telah Dikirim";
 
         $emails = "zakamaragames@gmail.com";
         $namas = "Yasz Avellia!";
 
-        $messageFeed = "Terimakasih!, Pesan anda telah berhasil terkirim!";
+        $messageFeed = "Terimakasih!. Pesan anda telah berhasil terkirim :3";
         $message = $pesan;
 
         //send

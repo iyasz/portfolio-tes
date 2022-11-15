@@ -55,9 +55,12 @@ function feedback($from, $from_name, $to, $subject, $message)
     $mail->addAddress($to);
 
     $mail->isHTML(true);
-
     $mail->Subject = $subject;
-    $mail->Body = $message;
+
+    ob_start();
+    include('feedback_template.php');
+    $mail->Body = ob_get_clean();
+    ob_end_clean();
 
     if ($mail->send()) {
         return true;
