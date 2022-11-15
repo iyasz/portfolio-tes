@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <h2>Pesan baru dari <span style="color: #425c81;"> <?= $from_name ?></span></h2>
+    <h2>Pesan baru dari <span style="color: #425c81;"> <?= $to_user ?></span></h2>
     <hr>
     <div class="message">
         <p><?= $message ?></p>

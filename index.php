@@ -59,7 +59,7 @@ if (isset($_POST['kirim'])) {
 
         //send
 
-        $send = send_email($email, $nama, $email, $subject, $message);
+        $send = send_email($email, $namas, $emails, $nama, $subject, $message);
 
         //feedback
 

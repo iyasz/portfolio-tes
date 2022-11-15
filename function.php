@@ -9,7 +9,7 @@ require 'assets/vendor/PHPMailer/src/Exception.php';
 require 'assets/vendor/PHPMailer/src/PHPMailer.php';
 require 'assets/vendor/PHPMailer/src/SMTP.php';
 
-function send_email($from, $from_name, $to, $subject, $message)
+function send_email($from, $from_name, $to, $to_user, $subject, $message)
 {
     //script php mailer
     $mail = new PHPMailer(true);
@@ -22,11 +22,11 @@ function send_email($from, $from_name, $to, $subject, $message)
     $mail->SMTPSecure = 'ssl';
     $mail->Port = 465;
 
-    $mail->setFrom($from, $from_name);
+    $mail->setFrom($from, $to_user);
+
     $mail->addAddress($to, $from_name);
 
     $mail->isHTML(true);
-
     $mail->Subject = $subject;
     ob_start();
     include('email_template.php');
