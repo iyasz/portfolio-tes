@@ -29,9 +29,8 @@ function send_email($from, $from_name, $to, $subject, $message)
 
     $mail->Subject = $subject;
     ob_start();
-    include('');
-    $mail->Body = $message;
-    // ob_get_clean();
+    include('email_template.php');
+    $mail->Body = ob_get_clean();
     ob_end_clean();
     if ($mail->send()) {
         return true;
